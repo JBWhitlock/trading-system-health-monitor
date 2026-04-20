@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ops-toolkit"
+version = "0.1.0"
+description = "Operations reliability toolkit for system health and endpoint monitoring"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "psutil",
+    "requests",
+    "pyyaml"
+]
+
+[project.scripts]
+ops-toolkit = "ops_toolkit.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
