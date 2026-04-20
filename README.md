@@ -17,3 +17,28 @@ Designed for environments requiring high uptime and rapid incident detection, su
 - psutil
 - requests
 - YAML config
+
+- ## Installation
+
+pip install psutil requests pyyaml
+
+## Configuration
+
+Example `config.yaml`:
+
+```yaml
+cpu_threshold: 85
+memory_threshold: 90
+interval_seconds: 30
+
+services:
+  - Spooler
+  - W32Time
+
+endpoints:
+  - name: Google
+    url: https://www.google.com
+    timeout: 2
+  - name: Dummy API
+    url: https://dummy-api.local/health
+    timeout: 2
