@@ -139,7 +139,26 @@ It is a foundation for:
 - automated incident detection  
 
 ---
-
-## License
-
-MIT
+## Output (Example)
+$ ops-toolkit run
+[2026-04-20 13:24:15] [INFO] Ops Toolkit started
+[2026-04-20 13:24:15] [INFO] ---- Running Health Checks ----
+[2026-04-20 13:24:16] [INFO] CPU OK: 3.1% (threshold: 85%)
+[2026-04-20 13:24:16] [INFO] Memory OK: 50.8% (threshold: 90%)
+[2026-04-20 13:24:16] [INFO] Service OK: Spooler
+[2026-04-20 13:24:16] [INFO] Service OK: W32Time
+[2026-04-20 13:24:25] [INFO] Google OK (438.83 ms) on attempt 1
+[2026-04-20 13:24:25] [WARNING] Dummy API failed on attempt 1: HTTPSConnectionPool(host='dummy-api.local', port=443): Max retries exceeded with url: /health (Caused by NameResolutionError("HTTPSConnection(host='dummy-api.local', port=443): Failed to resolve 'dummy-api.local' ([Errno 11001] getaddrinfo failed)"))
+[2026-04-20 13:24:25] [WARNING] Dummy API failed on attempt 2: HTTPSConnectionPool(host='dummy-api.local', port=443): Max retries exceeded with url: /health (Caused by NameResolutionError("HTTPSConnection(host='dummy-api.local', port=443): Failed to resolve 'dummy-api.local' ([Errno 11001] getaddrinfo failed)"))
+[2026-04-20 13:24:25] [WARNING] Dummy API failed on attempt 3: HTTPSConnectionPool(host='dummy-api.local', port=443): Max retries exceeded with url: /health (Caused by NameResolutionError("HTTPSConnection(host='dummy-api.local', port=443): Failed to resolve 'dummy-api.local' ([Errno 11001] getaddrinfo failed)"))
+[2026-04-20 13:24:25] [ALERT] Dummy API failed after 3 attempts
+[2026-04-20 13:24:55] [INFO] ---- Running Health Checks ----
+[2026-04-20 13:24:56] [INFO] CPU OK: 2.5% (threshold: 85%)
+[2026-04-20 13:24:56] [INFO] Memory OK: 51.5% (threshold: 90%)
+[2026-04-20 13:24:56] [INFO] Service OK: Spooler
+[2026-04-20 13:24:56] [INFO] Service OK: W32Time
+[2026-04-20 13:25:04] [INFO] Google OK (433.95 ms) on attempt 1
+[2026-04-20 13:25:04] [WARNING] Dummy API failed on attempt 1: HTTPSConnectionPool(host='dummy-api.local', port=443): Max retries exceeded with url: /health (Caused by NameResolutionError("HTTPSConnection(host='dummy-api.local', port=443): Failed to resolve 'dummy-api.local' ([Errno 11001] getaddrinfo failed)"))
+[2026-04-20 13:25:04] [WARNING] Dummy API failed on attempt 2: HTTPSConnectionPool(host='dummy-api.local', port=443): Max retries exceeded with url: /health (Caused by NameResolutionError("HTTPSConnection(host='dummy-api.local', port=443): Failed to resolve 'dummy-api.local' ([Errno 11001] getaddrinfo failed)"))
+[2026-04-20 13:25:04] [WARNING] Dummy API failed on attempt 3: HTTPSConnectionPool(host='dummy-api.local', port=443): Max retries exceeded with url: /health (Caused by NameResolutionError("HTTPSConnection(host='dummy-api.local', port=443): Failed to resolve 'dummy-api.local' ([Errno 11001] getaddrinfo failed)"))
+[2026-04-20 13:25:04] [ALERT] Dummy API failed after 3 attempts
