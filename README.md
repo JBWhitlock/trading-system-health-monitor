@@ -1,140 +1,152 @@
-#Ops Toolkit (Trading System Health Monitor)
+# AI-Enhanced Infrastructure Monitor
 
-Python-based operations reliability toolkit for monitoring system health, Windows services, and endpoint availability in production environments.
-
-Originally designed for trading systems, but built to be reusable across enterprise workloads.
+A lightweight Python-based monitoring tool designed to validate system health across CPU, memory, services, and network endpoints — enhanced with an AI-style analysis engine for operational risk detection and intelligent reporting.
 
 ---
 
-#Core Capabilities
+## 🚀 Overview
 
-- CPU & memory threshold monitoring  
+This tool simulates real-world enterprise monitoring workflows by combining:
+
+- System health checks (CPU, memory, services)
+- Endpoint availability validation with retry logic
+- Structured logging
+- AI-assisted operational analysis (risk scoring, correlation, recommendations)
+
+Built to reflect production-grade thinking around reliability, observability, and security.
+
+---
+
+## 🧠 AI-Enhanced Analysis
+
+Includes a deterministic AI-style analysis engine that:
+
+- Assigns **risk scores** based on system health signals  
+- Performs **correlation analysis** (e.g., service failures + endpoint failures)  
+- Reduces **false positives** using retry logic and thresholds  
+- Generates **executive summaries** and actionable recommendations  
+- Outputs structured **JSON reports** for integration with dashboards or SIEM tools  
+
+> Designed as a foundation for future integration with:
+> - Azure OpenAI  
+> - AWS Bedrock  
+> - OpenAI API  
+
+---
+
+## 📁 Project Structure
+
+```
+ResourceMonitor/
+├── monitor.py
+├── config.yaml
+├── ai/
+│   ├── __init__.py
+│   ├── analyzer.py
+│   └── prompts.py
+├── logs/
+├── reports/
+└── README.md
+```
+
+---
+
+## ⚙️ Features
+
+- CPU and memory monitoring with thresholds  
 - Windows service health validation  
-- Endpoint availability & latency checks (with retry logic)  
-- Config-driven execution (YAML)  
-- Structured logging  
-- CLI-based operation (no manual script execution)  
-- Modular architecture for extension  
+- HTTP/S endpoint monitoring with retries and latency tracking  
+- Structured logging to file  
+- AI-style analysis with:
+  - Risk scoring  
+  - Root-cause hints  
+  - Recommended actions  
+- JSON report generation  
 
 ---
 
-#Why This Exists
+## 🛠️ Installation
 
-Most environments rely on:
-- ad hoc scripts  
-- fragmented monitoring  
-- slow manual troubleshooting  
-
-This toolkit provides:
-- fast health visibility  
-- consistent checks  
-- extensible foundation for automation and remediation  
-
----
-
-#Installation
-
-```bash
-pip install -r requirements.txt
-pip install -e .
+```
+pip install psutil requests pyyaml
 ```
 
 ---
 
-#Usage
+## ▶️ Usage
 
-Run continuous monitoring:
-
-```bash
-ops-toolkit run
+```
+python monitor.py
 ```
 
-Run a single health check pass:
+Stop with:
 
-```bash
-ops-toolkit check-now
 ```
-
-Validate configuration:
-
-```bash
-ops-toolkit test-config
+Ctrl + C
 ```
 
 ---
 
-#Configuration
+## 📊 Sample Output
 
-Edit:
+```
+AI-Enhanced Operational Analysis
+--------------------------------
+3 finding(s) detected with an overall Medium risk level.
+Risk Level: Medium
+Risk Score: 45
 
-config/config.yaml
-
-Example:
-
-```yaml
-cpu_threshold: 85
-memory_threshold: 90
-interval_seconds: 30
-
-services:
-  - Spooler
-  - W32Time
-
-endpoints:
-  - name: Google
-    url: https://www.google.com
-    timeout: 2
-  - name: Dummy API
-    url: https://dummy-api.local/health
-    timeout: 2
+- High memory utilization detected: 89%
+- Service issue detected: Spooler is stopped
+- Endpoint failure detected after retries: https://example.com
 ```
 
 ---
 
-#Example Output
+## 📄 Sample Report (JSON)
 
-```text
-[INFO] ---- Running Health Checks ----
-[INFO] CPU OK: 23%
-[INFO] Memory OK: 51%
-[INFO] Service OK: Spooler
-[ALERT] Endpoint failure: Dummy API (timeout after retries)
+```json
+{
+  "risk_score": 45,
+  "risk_level": "Medium",
+  "findings": [
+    "High memory utilization detected",
+    "Service issue detected",
+    "Endpoint failure detected"
+  ],
+  "recommendations": [
+    "Check memory usage and running processes",
+    "Restart service and validate dependencies",
+    "Validate DNS/firewall/network path"
+  ]
+}
 ```
 
 ---
 
-#Project Structure
+## 🎯 Purpose
 
-```text
-src/ops_toolkit/
-  cli.py
-  main.py
-  config.py
-  logger.py
-  checks/
-    cpu.py
-    memory.py
-    windows_services.py
-    endpoints.py
-```
+This project demonstrates:
+
+- Automation-driven infrastructure monitoring  
+- Practical application of AI concepts to operations and security  
+- Structured data analysis and reporting  
+- Production-style system design and extensibility  
 
 ---
 
-#Roadmap
+## 🔮 Roadmap
 
-- Windows service installation mode  
-- Auto-remediation (restart services, retry endpoints)  
-- Local dashboard (Flask-based)  
-- Alerting integrations (email / webhook)  
+- Integration with LLMs for advanced analysis  
+- Historical trend analysis and anomaly detection  
+- Dashboard visualization (Grafana / web UI)  
+- SIEM integration  
+- Multi-node monitoring support  
 
 ---
 
-#Positioning
+## 👤 Author
 
-This is not a toy monitor.
-
-It is a foundation for:
-- production operations tooling  
-- reliability engineering workflows  
-- automated incident detection  
-
+James Whitlock  
+Enterprise Architect | Systems & Security Engineering  
+https://www.linkedin.com/in/jbwhitlock/
